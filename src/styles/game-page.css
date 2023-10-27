@@ -1,0 +1,24 @@
+.game {
+    display: flex;
+    flex-direction: column; /* Добавьте 'flex-direction: column;' */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+}
+
+.board {
+    line-height: 0;
+    background-color: #6b2fef;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title__ {
+    font-family: "Fascinate Inline", serif;
+    font-size: 5vh;
+    text-align: center;
+    color: #03DAC6;
+    padding: 20px;
+}

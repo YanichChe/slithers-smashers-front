@@ -4,12 +4,17 @@ import ChooseGamePage from "./pages/ChooseGamePage";
 import GetStartedPage from "./pages/GetStartedPage";
 import CreateCustomGamePage from "./pages/CreateCustomGamePage";
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
+import GamePage from "./pages/GamePage";
 function App() {
 
     return (
         <Router>
             <main>
                 <Switch>
+                    <Route path="/game">
+                        <GamePage/>
+                    </Route>
+
                     <Route path="/create-custom-game">
                         <CreateCustomGamePage/>
                     </Route>
