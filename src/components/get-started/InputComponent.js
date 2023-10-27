@@ -3,6 +3,10 @@ import '../../styles/get-started-page.css'
 
 const InputComponent = () => {
 
+    const handleClick = () => {
+        window.location.assign('http://localhost:3000/game');
+    }
+
     return (
         <div className='form-group'>
             <div>
@@ -12,7 +16,7 @@ const InputComponent = () => {
                 </p>
             </div>
             <input className='input-field' placeholder="Type your username here" type='text'></input>
-            <button className='button_start'>START</button>
+            <button className='button_start' onClick={handleClick}>START</button>
         </div>
     );
 };

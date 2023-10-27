@@ -28,6 +28,7 @@ const RegistrationForm = () => {
 
 
     const submituserRegistrationForm = (e) => {
+        window.location.assign('http://localhost:3000/game');
         e.preventDefault();
         setGameName('');
         setIpAddress('');
