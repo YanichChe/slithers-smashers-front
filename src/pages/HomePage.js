@@ -4,12 +4,12 @@ import HomeHeaderComponent from "../components/home/HomeHeaderComponent";
 import InfoPanelComponent from "../components/home/InfoPanelComponent";
 import ButtonsComponent from "../components/home/ButtonsComponent";
 
-const HomePage = ({chooseGameRef}) => {
+const HomePage = () => {
     return (
         <div className='home'>
             <HomeHeaderComponent/>
             <InfoPanelComponent/>
-            <ButtonsComponent chooseGameRef={chooseGameRef}/>
+            <ButtonsComponent/>
         </div>
 
     );

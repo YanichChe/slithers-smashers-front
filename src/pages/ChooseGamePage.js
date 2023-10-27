@@ -3,9 +3,9 @@ import '../styles/choose-game-page.css'
 import InfoPanelComponent from "../components/choose-game/InfoPanelChooseComponent";
 import GamesListComponent from "../components/choose-game/GamesListComponent";
 
-const ChooseGamePage = ({chooseGameRef}) => {
+const ChooseGamePage = () => {
     return (
-        <div ref={chooseGameRef} className='choose-game'>
+        <div className='choose-game'>
             <InfoPanelComponent/>
             <GamesListComponent/>
         </div>

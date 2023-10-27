@@ -1,0 +1,104 @@
+.create-custom-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#register,
+#login {
+    width: 100%;
+    border: 1px solid #612cd9;
+    padding: 0 15px 15px 15px;
+    border-radius: 5px;
+    font-family: arial, serif;
+    line-height: 16px;
+    color: #612cd9;
+    font-size: 14px;
+    background: #ffffff;
+
+}
+
+form label,
+form input {
+    display: block;
+    margin-bottom: 10px;
+    width: 90%;
+    font-family: "Inter", serif;
+    color: #000000;
+    text-align: center;
+}
+
+form input {
+    padding: 10px;
+    border: solid 1px #612cd9;
+}
+
+.button {
+    background-color: #612cd9;
+    border-color: #6b2fef;
+    font-weight: bold;
+    color: #ffffff;
+    width: 100%;
+}
+
+.errorMsg {
+    color: #cc0000;
+    margin-bottom: 12px;
+}
+
+.sucessMsg {
+    color: #6b8e23;
+    margin-bottom: 10px;
+}
+
+.title_ {
+    font-family: "Fascinate Inline", serif;
+    font-size: 10vh;
+    text-align: center;
+    color: #3700B3;
+    padding: 20px;
+}
+
+#figure3 {
+    top: 20%;
+    left: 10%;
+    transform: rotate(40deg);
+    z-index: 0;
+    box-sizing: border-box;
+    width: 700px;
+    height: 310px;
+    display: block;
+    overflow: hidden;
+    opacity: 0.3;
+    border-radius: 100%;
+    border: 1px solid #000000;
+    position: absolute;
+}
+
+#figure4 {
+    top: 5%;
+    right: 10%;
+    transform: rotate(-40deg);
+    z-index: 0;
+    box-sizing: border-box;
+    width: 350px;
+    height: 310px;
+    display: block;
+    overflow: hidden;
+    opacity: 0.3;
+    border-radius: 100%;
+    border: 1px solid #000000;
+    position: absolute;
+}
+
+.description-input_ {
+    font-family: "Inter", serif;
+    color: #000000;
+    font-size: 3vh;
+    text-align: center;
+    padding: 20px 20%;
+}

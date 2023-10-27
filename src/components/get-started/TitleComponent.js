@@ -4,7 +4,8 @@ import '../../styles/get-started-page.css'
 const TitleComponent = () => {
 
     return (
-        <div className='title'>GET STARTED</div>
+        <div className='title'>GET STARTED
+        </div>
     );
 };
 
