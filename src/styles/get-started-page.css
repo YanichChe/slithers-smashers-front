@@ -1,0 +1,97 @@
+.get-started {
+    display: flex;
+    flex-direction: column; /* Добавьте 'flex-direction: column;' */
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #ffffff;
+}
+
+#figure1 {
+    top:20%;
+    left: 10%;
+    transform: rotate(40deg);
+    z-index: 0;
+    box-sizing: border-box;
+    width: 700px;
+    height: 310px;
+    display: block;
+    overflow: hidden;
+    opacity: 0.3;
+    border-radius: 100%;
+    border: 1px solid #000000;
+    position: absolute;
+}
+
+#figure2 {
+    top:5%;
+    right: 10%;
+    transform: rotate(-40deg);
+    z-index: 0;
+    box-sizing: border-box;
+    width: 350px;
+    height: 310px;
+    display: block;
+    overflow: hidden;
+    opacity: 0.3;
+    border-radius: 100%;
+    border: 1px solid #000000;
+    position: absolute;
+}
+
+.title {
+    font-family: "Fascinate Inline", serif;
+    font-size: 15vh;
+    text-align: center;
+    color: #3700B3;
+    padding: 20px;
+}
+
+.input-field:focus {
+    border: 1px solid #3700B3;
+    box-shadow: 0px 0px 5px 0.5px #3700b3;
+}
+
+.input-field {
+    outline: none;
+    height: 44px;
+    width: 20%;
+    padding: 0 20px;
+    background: transparent;
+    border: 2px solid #822EFF;
+    border-radius: 10px 10px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+.button_start {
+    height: 46px;
+    background-color: #3700b3;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-group {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.description-input {
+    font-family: "Inter", serif;
+    color: #000000;
+    font-size: 3vh;
+    text-align: center;
+    padding: 20px 20%;
+}
+
+.author {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    color: #822EFF;
+}

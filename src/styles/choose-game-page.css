@@ -1,0 +1,83 @@
+.choose-game {
+    display: flex;
+    flex-direction: column; /* Добавьте 'flex-direction: column;' */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000000;
+}
+
+.info_ {
+    width: 100%;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    height: 30%;
+}
+
+.desc_ {
+    font-family: "Inter", serif;
+    color: #03DAC6;
+    font-size: 3vh;
+    text-align: center;
+    padding-right: 20vw;
+    padding-left: 20vw;
+}
+
+.text-styles_ {
+    font-family: "Fascinate Inline", serif;
+    font-size: 8vh;
+    text-align: center;
+    color: white;
+}
+
+/*-----------------------------------------------------------*/
+
+.list {
+    display: flex;
+    overflow-x: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 70%;
+    align-items: center;
+}
+
+.scrollableContainer {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    width: 300px;
+    height: 30vh;
+    background-color: rgba(37, 37, 37, 0.8);
+    border-radius: 300px;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.item:not(:last-child) {
+    margin-right: 1em;
+}
+
+.game-name {
+    font-family: "Fascinate Inline", serif;
+    font-size: 3vh;
+    text-align: center;
+    color: white;
+}
+
+.user-name {
+    font-family: "Inter", serif;
+    color: #03DAC6;
+    font-size: 2vh;
+    text-align: center;
+}
+
+/*-----------------------------------------------------------*/

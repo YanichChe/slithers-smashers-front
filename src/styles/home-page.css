@@ -1,0 +1,94 @@
+.home {
+    display: flex;
+    flex-direction: column; /* Добавьте 'flex-direction: column;' */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #822EFF;
+}
+
+.container {
+    width: 80%;
+    display: inline-block;
+}
+
+.container h1 {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.container h1:before,
+.container h1:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    width: 50%;
+    height: 3px;
+    vertical-align: middle;
+    background: #fffcfc;
+}
+
+.container h1:before {
+    left: -10px;
+    margin-left: -50%;
+}
+
+.container h1:after {
+    left: 10px;
+    margin-right: -50%;
+}
+
+.info {
+    width: 100%;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.desc {
+    font-family: "Inter", serif;
+    color: white;
+    font-size: 3vh;
+    padding-right: 20vw;
+    text-align: center;
+    padding-left: 20vw;
+}
+
+.textStyles {
+    font-family: "Fascinate Inline", serif;
+    font-size: 15vh;
+    text-align: center;
+    color: white;
+}
+
+.button_container {
+    margin: 0 auto;
+}
+
+.button_choose_game {
+    font-family: "Inter", serif;
+    font-size: 3vh;
+    height: min-content;
+    background-color: #3700b3;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+    margin-right: 2vw;
+}
+
+.button_create_custom {
+    font-family: "Inter", serif;
+    font-size: 3vh;
+    height: min-content;
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 10px;
+    color: #822EFF;
+    margin-left: 2vw;
+}
