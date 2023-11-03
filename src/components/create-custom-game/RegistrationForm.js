@@ -7,8 +7,6 @@ import {observer} from "mobx-react";
 const RegistrationForm = observer(() => {
 
     const [gameName, setGameName] = useState('');
-    const [ipAddress, setIpAddress] = useState('');
-    const [port, setPort] = useState('');
 
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
@@ -17,8 +15,6 @@ const RegistrationForm = observer(() => {
     const [username, setUsername] = useState('');
 
     const [gameNameError, setGameNameError] = useState('');
-    const [ipAddressError, setIpAddressError] = useState('');
-    const [portError, setPortError] = useState('');
 
     const [heightError, setHeightError] = useState('');
     const [widthError, setWidthError] = useState('');
@@ -37,15 +33,13 @@ const RegistrationForm = observer(() => {
     const submituserRegistrationForm = (e) => {
         e.preventDefault();
         store.setGameName(gameName);
-        ConfigService.sendStartPost(height, width, foodStatic, stateDelayMs, gameName, username, ipAddress, port)
+        ConfigService.sendStartPost(height, width, foodStatic, stateDelayMs, gameName, username)
             .then(() => {
                 window.location.assign('http://localhost:3000/game');
             })
             .catch((error) => {
                 console.error('Ошибка:', error);
                 setGameName('');
-                setIpAddress('');
-                setPort('');
             });
     }
 
@@ -63,21 +57,6 @@ const RegistrationForm = observer(() => {
                         onChange={(event) => handleChange(event, setGameName)}
                     />
                     <div className="errorMsg">{gameNameError}</div>
-
-                    <label>Ip Address:</label>
-                    <input
-                        type="text"
-                        value={ipAddress}
-                        onChange={(event) => handleChange(event, setIpAddress)}
-                    />
-                    <div className="errorMsg">{ipAddressError}</div>
-
-                    <label>Port:</label>
-                    <input
-                        type="number"
-                        value={port}
-                        onChange={(event) => handleChange(event, setPort)}
-                    />
 
                     <label>Height:</label>
                     <input

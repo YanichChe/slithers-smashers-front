@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class ConfigService {
     static sendStartPost(
-        height, width, foodStatic, stateDelayMs, gameName, username, ipAddress, port
+        height, width, foodStatic, stateDelayMs, gameName, username
     ) {
         return axios.post('/start', {
 
@@ -12,9 +12,6 @@ export default class ConfigService {
             stateDelayMs: stateDelayMs,
             gameName: gameName,
             username: username,
-            ipAddress: ipAddress,
-            port: port
-
         })
     }
 }
