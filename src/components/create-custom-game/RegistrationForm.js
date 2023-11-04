@@ -11,7 +11,6 @@ const RegistrationForm = observer(() => {
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
     const [foodStatic, setFoodStatic] = useState('');
-    const [stateDelayMs, setDelayMs] = useState('');
     const [username, setUsername] = useState('');
 
     const [gameNameError, setGameNameError] = useState('');
@@ -19,7 +18,6 @@ const RegistrationForm = observer(() => {
     const [heightError, setHeightError] = useState('');
     const [widthError, setWidthError] = useState('');
     const [foodStaticError, setFoodStaticError] = useState('');
-    const [stateDelayMsError, setDelayMsError] = useState('');
     const [usernameError, setUsernameError] = useState('');
 
     const store = useContext(gameNameContext);
@@ -33,7 +31,7 @@ const RegistrationForm = observer(() => {
     const submituserRegistrationForm = (e) => {
         e.preventDefault();
         store.setGameName(gameName);
-        ConfigService.sendStartPost(height, width, foodStatic, stateDelayMs, gameName, username)
+        ConfigService.sendStartPost(height, width, foodStatic, gameName, username)
             .then(() => {
                 window.location.assign('http://localhost:3000/game');
             })
@@ -81,14 +79,6 @@ const RegistrationForm = observer(() => {
                         onChange={(event) => handleChange(event, setFoodStatic)}
                     />
                     <div className="errorMsg">{foodStaticError}</div>
-
-                    <label>Delay ms:</label>
-                    <input
-                        type="number"
-                        value={stateDelayMs}
-                        onChange={(event) => handleChange(event, setDelayMs)}
-                    />
-                    <div className="errorMsg">{stateDelayMsError}</div>
 
                     <label>Username:</label>
                     <input
