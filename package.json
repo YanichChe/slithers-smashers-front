@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:8080/master",
+  "proxy": "http://localhost:8080",
   "name": "sliethers-smashers",
   "version": "0.1.0",
   "private": true,
