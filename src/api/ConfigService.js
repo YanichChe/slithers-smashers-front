@@ -4,7 +4,7 @@ export default class ConfigService {
     static sendStartPost(
         height, width, foodStatic, gameName, username
     ) {
-        return axios.post('/start', {
+        return axios.post('/master/start', {
 
             height: height,
             width: width,
@@ -12,5 +12,9 @@ export default class ConfigService {
             gameName: gameName,
             username: username,
         })
+    }
+
+    static getGameState() {
+        return axios.get('/player/game-state')
     }
 }
