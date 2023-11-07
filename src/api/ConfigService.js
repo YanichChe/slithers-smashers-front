@@ -5,7 +5,6 @@ export default class ConfigService {
         height, width, foodStatic, gameName, username
     ) {
         return axios.post('/master/start', {
-
             height: height,
             width: width,
             foodStatic: foodStatic,
@@ -16,5 +15,11 @@ export default class ConfigService {
 
     static getGameState() {
         return axios.get('/player/game-state')
+    }
+
+    static sentHeadDirection(direction) {
+        return axios.patch('/player/change-direction', {
+            direction: direction
+        })
     }
 }

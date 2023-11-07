@@ -10,16 +10,14 @@ function GameBoardComponent({n, m}) {
                 .then(response => {
                     const {snakeList} = response.data;
                     if (Array.isArray(snakeList) && snakeList.length > 0) {
-                        console.log(snakeList);
                         const apiCoords = snakeList.map(snake => snake.coordList).flat();
-                        console.log(apiCoords);
                         setCoordsFromResponse(apiCoords);
                     }
                 })
                 .catch(error => {
                     console.error('Ошибка при получении данных:', error);
                 });
-        }, 1000);
+        }, 300);
 
         return () => {
             clearInterval(interval);
