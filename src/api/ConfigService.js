@@ -22,4 +22,8 @@ export default class ConfigService {
             direction: direction
         })
     }
+
+    static getGamesList() {
+        return axios.get("/player/games-list")
+    }
 }
