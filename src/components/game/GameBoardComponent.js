@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ConfigService from "../../api/ConfigService";
-import redImg from "../../images/apple.jpg"
+import redImg from "../../images/apple.png"
 
 function GameBoardComponent({n, m}) {
     const [coordsFromResponse, setCoordsFromResponse] = useState([]);
@@ -49,19 +49,20 @@ function GameBoardComponent({n, m}) {
 
             if (true) {
                 backgroundStyle = {
-                    backgroundColor: 'white',
+                    backgroundColor: '#A2D149',
                 };
             }
 
             if (isColored) {
                 backgroundStyle = {
-                    backgroundColor: '#FF5733',
+                    backgroundColor: '#4674E9',
                 };
             }
 
             if (isFood) {
                 const foodImagePath = './red.jpg';
                 backgroundStyle = {
+                    backgroundColor: '#A2D149',
                     backgroundImage: `url(${redImg})`,
                     backgroundSize: 'cover',
                     width: squareSize + 'vh',
