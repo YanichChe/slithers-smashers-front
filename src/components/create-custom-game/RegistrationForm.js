@@ -27,7 +27,6 @@ const RegistrationForm = observer(() => {
         setStateFunction(inputValue);
     };
 
-
     const submituserRegistrationForm = (e) => {
         e.preventDefault();
         store.setGameName(gameName);

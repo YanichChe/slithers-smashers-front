@@ -1,37 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import ConfigService from "../../api/ConfigService";
-import redImg from "../../images/apple.png"
+import appleImage from "../../images/apple.png"
+import FailStatusMessage from "./FaiStatuslMessage";
+import {gameNameContext} from "../../stores/GameNameStore";
 
 function GameBoardComponent({n, m}) {
     const [coordsFromResponse, setCoordsFromResponse] = useState([]);
     const [foodsCoordFromResponse, setFoodsCordFromResponse] = useState([]);
+    const [isAliveFromResponse, setIsAliveFromResponse] = useState(true);
+    const [scoreFromResponse, setScoreFromResponse] = useState(0);
+    const store = useContext(gameNameContext);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            ConfigService.getGameState()
-                .then(response => {
-                    const {snakeList} = response.data;
-                    const {foods} = response.data;
-                    if (Array.isArray(snakeList) && snakeList.length > 0) {
-                        const apiCoords = snakeList.map(snake => snake.coordList).flat();
-                        setCoordsFromResponse(apiCoords);
-                        console.log('snake' + apiCoords)
-                    }
-                    if (Array.isArray(foods) && foods.length > 0) {
-                        setFoodsCordFromResponse(foods);
-                        console.log('food ' + foods.x)
-                    }
+        if (isAliveFromResponse) {
+            const id = setInterval(() => {
+                ConfigService.getGameState()
+                    .then(response => {
+                        const {snakeList} = response.data;
+                        const {foods} = response.data;
+                        const {alive} = response.data;
+                        const {score} = response.data;
+                        if (Array.isArray(snakeList)) {
+                            const apiCoords = snakeList.map(snake => snake.coordList).flat();
+                            setCoordsFromResponse(apiCoords);
+                        }
+                        if (Array.isArray(foods)) {
+                            setFoodsCordFromResponse(foods);
+                        }
+                        setIsAliveFromResponse(alive);
+                        setScoreFromResponse(score);
+                        if (!isAliveFromResponse) console.log(isAliveFromResponse);
 
-                })
-                .catch(error => {
-                    console.error('Ошибка при получении данных:', error);
-                });
-        }, 300);
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при получении данных:', error);
+                    });
+            }, 300);
 
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
+        } else {
+
+            store.setGameName("You lose")
+        }
+    }, [isAliveFromResponse]);
+
 
     const height = 80 + 'vh';
     const squareSize = 80 / m;
@@ -63,7 +74,7 @@ function GameBoardComponent({n, m}) {
                 const foodImagePath = './red.jpg';
                 backgroundStyle = {
                     backgroundColor: '#A2D149',
-                    backgroundImage: `url(${redImg})`,
+                    backgroundImage: `url(${appleImage})`,
                     backgroundSize: 'cover',
                     width: squareSize + 'vh',
                     height: squareSize + 'vh',
@@ -92,7 +103,7 @@ function GameBoardComponent({n, m}) {
 
     return (
         <div style={{width, height}} className='board'>
-            {squares}
+            {isAliveFromResponse ? squares : <FailStatusMessage points = {scoreFromResponse}/>}
         </div>
     );
 }
