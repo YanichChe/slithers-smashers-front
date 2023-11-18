@@ -12,8 +12,9 @@ function GameBoardComponent({n, m}) {
     const store = useContext(gameNameContext);
 
     useEffect(() => {
+        let id;
         if (isAliveFromResponse) {
-            const id = setInterval(() => {
+            id = setInterval(() => {
                 ConfigService.getGameState()
                     .then(response => {
                         const {snakeList} = response.data;
@@ -29,7 +30,10 @@ function GameBoardComponent({n, m}) {
                         }
                         setIsAliveFromResponse(alive);
                         setScoreFromResponse(score);
-                        if (!isAliveFromResponse) console.log(isAliveFromResponse);
+                        if (!isAliveFromResponse) {
+                            clearInterval(id); // Очистить интервал, если игрок больше не жив
+                            store.setGameName("You lose");
+                        }
 
                     })
                     .catch(error => {
@@ -103,7 +107,7 @@ function GameBoardComponent({n, m}) {
 
     return (
         <div style={{width, height}} className='board'>
-            {isAliveFromResponse ? squares : <FailStatusMessage points = {scoreFromResponse}/>}
+            {isAliveFromResponse ? squares : <FailStatusMessage points={scoreFromResponse}/>}
         </div>
     );
 }
