@@ -62,6 +62,10 @@
     flex-shrink: 0;
 }
 
+.item:active {
+    background-color: #4CAF50; /* измените цвет на нужный вам */
+}
+
 .item:not(:last-child) {
     margin-right: 1em;
 }

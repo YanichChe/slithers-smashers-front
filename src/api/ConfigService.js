@@ -10,6 +10,7 @@ export default class ConfigService {
             foodStatic: foodStatic,
             gameName: gameName,
             username: username,
+            haveSnake: 1
         })
     }
 
@@ -25,5 +26,12 @@ export default class ConfigService {
 
     static getGamesList() {
         return axios.get("/player/games-list")
+    }
+
+    static sendJoinMessage(gamePlayerName, gameName) {
+        return axios.post('/player/join', {
+            playerName: gamePlayerName,
+            gameName: gameName
+        })
     }
 }

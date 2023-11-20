@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import '../../styles/choose-game-page.css'
 import ConfigService from "../../api/ConfigService";
+import { chooseGameNameContext } from "../../stores/ChooseGameNameStore";
 
 const GamesListComponent = () => {
     const [gamesFromResponse, setGamesFromResponse] = useState([]);
+    const [activeItem, setActiveItem] = useState(null);
+    const storeChooseGameName = useContext(chooseGameNameContext);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            ConfigService.getGameState()
+            ConfigService.getGamesList()
                 .then(response => {
-                    const {gamesName} = response.data;
+                    const { gamesName } = response.data;
                     if (Array.isArray(gamesName) && gamesName.length > 0) {
                         setGamesFromResponse(gamesName)
                     }
@@ -24,11 +27,22 @@ const GamesListComponent = () => {
         };
     }, []);
 
+    const handleClick = (event, gameName) => {
+        event.preventDefault();
+        storeChooseGameName.setChooseGameName(gameName);
+        setActiveItem(gameName);
+        console.log(activeItem);
+    };
+
     return (
         <div className="scrollableContainer">
             <ul className="list">
                 {gamesFromResponse.map((gameName, index) => (
-                    <li className="item" key={index}>
+                    <li
+                        className={`item ${activeItem === gameName ? ':active' : ''}`}
+                        onClick={(e) => handleClick(e, gameName)}
+                        key={index}
+                    >
                         <div>
                             <h1 className='game-name'>{gameName}</h1>
                         </div>
