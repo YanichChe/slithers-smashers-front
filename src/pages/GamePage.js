@@ -3,6 +3,7 @@ import '../styles/game-page.css'
 import GameBoardComponent from "../components/game/GameBoardComponent";
 import TitleGameComponent from "../components/game/TitleGameComponent";
 import ConfigService from "../api/ConfigService";
+import PlayersTable from "../components/game/PlayersTable";
 
 const GamePage = () => {
 
@@ -56,7 +57,8 @@ const GamePage = () => {
     return (
         <div className='game'>
             <TitleGameComponent/>
-            <GameBoardComponent m={m} n={n}/>
+            <GameBoardComponent m={m} n={n} />
+            <PlayersTable />
         </div>
 
     );

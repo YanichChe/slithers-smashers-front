@@ -3,7 +3,7 @@
     flex-direction: column; /* Добавьте 'flex-direction: column;' */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: max-content;
     width: 100vw;
     background-color: #000000;
 }
@@ -21,4 +21,55 @@
     text-align: center;
     color: #03DAC6;
     padding: 20px;
+}
+
+.players-table {
+    padding-right: 60%;
+}
+.players-table ol {
+    list-style: none;
+    padding: 1.5rem;
+    border: 0.1rem solid lightgrey;
+    columns: 16rem;
+    column-rule: 0.2rem dotted turquoise;
+    border-radius: 0.5rem;
+}
+
+.players-table li {
+    --y: calc(100% - 2rem);
+    display: grid;
+    grid-template-columns: minmax(3.75em, auto) 1fr;
+    gap: 0 0.5em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: radial-gradient(circle at 30% var(--y), rgb(50 50 50), rgb(0 0 0));
+    color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgb(0 0 0 / 0.17)
+}
+
+.players-table li::before {
+    counter-increment: list-item;
+    content: counter(list-item);
+    font-weight: 700;
+    font-size: 4.5em;
+    letter-spacing: -0.125em;
+    line-height: 1;
+    color: turquoise;
+    grid-column: 1;
+    grid-row: span 2;
+    align-self: end;
+    margin: 0 0 -0.15em -0.15em;
+}
+
+
+.players-table li span:first-of-type {
+    font-size: 1.5em;
+    padding-top: 1rem;
+}
+
+.players-table li span:last-of-type {
+    font-style: italic;
+    padding-bottom: 1rem;
 }

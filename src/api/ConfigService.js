@@ -34,4 +34,8 @@ export default class ConfigService {
             gameName: gameName
         })
     }
+
+    static getPlayersTable() {
+        return axios.get('/player/players-table')
+    }
 }
