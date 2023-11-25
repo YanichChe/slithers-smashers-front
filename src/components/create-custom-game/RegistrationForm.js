@@ -1,8 +1,9 @@
 import React, {useContext, useState} from "react";
 import '../../styles/create-custom-game-page.css';
 import ConfigService from "../../api/ConfigService";
-import {gameNameContext} from "../../stores/GameNameStore";
+import {gameNameStore} from "../../stores/GameNameStore";
 import {observer} from "mobx-react";
+import {GameSettingsContext} from "../../stores/GameSettingsStore";
 
 const RegistrationForm = observer(() => {
 
@@ -20,7 +21,7 @@ const RegistrationForm = observer(() => {
     const [foodStaticError, setFoodStaticError] = useState('');
     const [usernameError, setUsernameError] = useState('');
 
-    const store = useContext(gameNameContext);
+    const gameSettingsStore = useContext(GameSettingsContext);
 
     const handleChange = (event, setStateFunction) => {
         const inputValue = event.target.value;
@@ -29,7 +30,10 @@ const RegistrationForm = observer(() => {
 
     const submituserRegistrationForm = (e) => {
         e.preventDefault();
-        store.setGameName(gameName);
+
+        gameNameStore.setGameName(gameName);
+        gameSettingsStore.setN(width);
+        gameSettingsStore.setM(height);
         ConfigService.sendStartPost(height, width, foodStatic, gameName, username)
             .then(() => {
                 window.location.assign('http://localhost:3000/game');

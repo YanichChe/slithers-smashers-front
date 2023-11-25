@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ConfigService from "../../api/ConfigService";
+import FailStatusMessage from "./FaiStatuslMessage";
 
 const PlayersTable = () => {
     const [players, setPlayersFromResponse] = useState([]);
@@ -25,7 +26,8 @@ const PlayersTable = () => {
 
     return (
         <div className="players-table">
-            <ol start="1">
+
+            {players.length !== 0 ? <ol start="1">
                 {players.map((row, rowIndex) => (
                     <li key={rowIndex}>
                         {row.map((cell, cellIndex) => (
@@ -35,7 +37,8 @@ const PlayersTable = () => {
                         ))}
                     </li>
                 ))}
-            </ol>
+            </ol> : <p />}
+
         </div>
     );
 };
