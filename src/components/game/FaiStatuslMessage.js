@@ -1,10 +1,12 @@
 import React from "react";
 import losePng from "../../images/lose.png"
+import ConfigService from "../../api/ConfigService";
 
 class FailStatusMessage extends React.Component {
 
     render() {
         const handleButton = (e) => {
+            ConfigService.exit();
             window.location.assign('http://localhost:3000');
         }
         const {points} = this.props;
