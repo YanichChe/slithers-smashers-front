@@ -4,6 +4,7 @@ import GameBoardComponent from "../components/game/GameBoardComponent";
 import TitleGameComponent from "../components/game/TitleGameComponent";
 import ConfigService from "../api/ConfigService";
 import PlayersTable from "../components/game/PlayersTable";
+import Exit from "../components/game/Exit";
 
 const GamePage = () => {
 
@@ -56,9 +57,14 @@ const GamePage = () => {
 
     return (
         <div className='game'>
-            <TitleGameComponent/>
-            <GameBoardComponent m={m} n={n} />
-            <PlayersTable />
+            <div className='wrapper'>
+                <TitleGameComponent/>
+                <Exit/>
+            </div>
+
+            <GameBoardComponent m={m} n={n}/>
+            <PlayersTable/>
+      
         </div>
 
     );

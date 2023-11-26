@@ -73,3 +73,7 @@
     font-style: italic;
     padding-bottom: 1rem;
 }
+
+.wrapper {
+    display: flex;
+}
